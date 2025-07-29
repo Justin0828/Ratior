@@ -1,0 +1,40 @@
+{
+  "name": "ratior-app",
+  "productName": "Ratior",
+  "version": "1.0.0",
+  "description": "简约优美的每日计划定制应用",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [
+    "todo",
+    "planner",
+    "productivity"
+  ],
+  "author": {
+    "name": "Justin0828",
+    "email": "panyz24@mails.tsinghua.edu.cn"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "electron-squirrel-startup": "^1.0.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-dmg": "^7.8.1",
+    "@electron-forge/maker-rpm": "^7.8.1",
+    "@electron-forge/maker-squirrel": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.8.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
+    "@electron-forge/plugin-fuses": "^7.8.1",
+    "@electron/fuses": "^1.8.0",
+    "electron": "37.2.4"
+  }
+}

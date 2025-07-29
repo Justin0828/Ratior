@@ -1,0 +1,32 @@
+# Ratior 项目根目录 .gitignore
+
+# macOS 特定文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows 特定文件
+Thumbs.db
+desktop.ini
+*.lnk
+
+# IDE 和编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+
+# 日志文件
+*.log
+
+# 个人笔记（如果有的话）
+notes/
+personal/

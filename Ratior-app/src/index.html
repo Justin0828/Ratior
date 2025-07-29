@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ratior - 每日计划</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- 主容器 -->
+    <div class="app-container">
+      <!-- 顶部日期选择栏 -->
+      <header class="header-date-bar">
+        <button class="btn-today">返回今天</button>
+        <div class="week-nav">
+          <button class="nav-arrow nav-prev">&lt;</button>
+          <div class="date-tabs" id="date-tabs">
+            <!-- 日期标签会通过JS动态生成 -->
+          </div>
+          <button class="nav-arrow nav-next">&gt;</button>
+        </div>
+        <div class="calendar-container">
+          <button class="btn-calendar">📅</button>
+          <!-- 日历弹层 -->
+          <div class="calendar-popup" id="calendar-popup">
+            <div class="calendar-header">
+              <button class="calendar-nav" id="calendar-prev">&lt;</button>
+              <span class="calendar-title" id="calendar-title"></span>
+              <button class="calendar-nav" id="calendar-next">&gt;</button>
+            </div>
+            <div class="calendar-grid" id="calendar-grid">
+              <!-- 日历网格会通过JS动态生成 -->
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- 主内容区 -->
+      <main class="main-content">
+        <!-- 左侧随心记栏 -->
+        <aside class="sidebar-notes">
+          <div class="notes-header">
+            <h3>随心记</h3>
+            <div class="notes-header-actions">
+              <span class="notes-count" id="notes-count">0</span>
+              <button class="settings-btn" id="settings-btn" title="设置">⚙️</button>
+            </div>
+          </div>
+          <div class="notes-input-area">
+            <input 
+              type="text" 
+              class="notes-input" 
+              id="notes-input"
+              placeholder="随手记点什么…（Enter保存）"
+            />
+          </div>
+          <div class="notes-list" id="notes-list">
+            <!-- 随心记条目会通过JS动态生成 -->
+          </div>
+        </aside>
+
+        <!-- 主区任务列表 -->
+        <section class="task-area">
+          <div class="task-header">
+            <h2 id="current-date-title">今天</h2>
+            <span class="task-count" id="task-count">0 个任务</span>
+          </div>
+          <div class="task-list" id="task-list">
+            <!-- 任务卡片会通过JS动态生成 -->
+          </div>
+          <div class="empty-state" id="empty-state">
+            <div class="empty-icon">📝</div>
+            <p>给今天添加一个任务吧</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- 右下角添加按钮 -->
+    <button class="fab-add" id="fab-add">+</button>
+
+    <!-- 添加任务抽屉 -->
+    <div class="drawer-overlay" id="drawer-overlay">
+      <div class="add-drawer" id="add-drawer">
+        <div class="drawer-header">
+          <div class="drawer-tabs">
+            <button class="tab-btn active" data-tab="quick">快速添加</button>
+            <button class="tab-btn" data-tab="template">从模板</button>
+          </div>
+          <button class="drawer-close">&times;</button>
+        </div>
+        <div class="drawer-content">
+          <!-- 快速添加标签页 -->
+          <div class="tab-content active" id="tab-quick">
+            <input 
+              type="text" 
+              class="task-input" 
+              id="task-title-input"
+              placeholder="任务标题"
+            />
+            <textarea 
+              class="task-desc" 
+              id="task-desc-input"
+              placeholder="描述（可选）"
+              rows="2"
+            ></textarea>
+            <div class="priority-selector">
+              <label>优先级：</label>
+              <div class="priority-options">
+                <button class="priority-btn" data-priority="none">无</button>
+                <button class="priority-btn" data-priority="low">低</button>
+                <button class="priority-btn" data-priority="med">中</button>
+                <button class="priority-btn active" data-priority="high">高</button>
+              </div>
+            </div>
+            <button class="btn-save">添加任务</button>
+          </div>
+          
+          <!-- 模板标签页 -->
+          <div class="tab-content" id="tab-template">
+            <div class="template-list" id="template-list">
+              <!-- 模板项会通过JS动态生成 -->
+            </div>
+            <div class="template-empty">
+              <p>暂无模板，可在设置中添加</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模态框遮罩 -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal" id="modal">
+        <!-- 模态框内容会通过JS动态生成 -->
+      </div>
+    </div>
+
+    <!-- 轻提示 -->
+    <div class="toast" id="toast">
+      <span class="toast-message"></span>
+    </div>
+
+    <script src="store.js"></script>
+    <script src="components.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
