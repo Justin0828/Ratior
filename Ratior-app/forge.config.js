@@ -8,7 +8,7 @@ module.exports = {
     productName: 'Ratior - 每日计划',
     appBundleId: 'com.ratior.app',
     appCategoryType: 'public.app-category.productivity',
-    // icon: './assets/icon', // 如果有图标的话
+    icon: './assets/ratior_icon', // 启用图标（Electron会自动选择合适的格式）
     ignore: [
       /^\/src\/.*\.map$/,
       /node_modules\/.*\.(md|txt|yml|yaml)$/,
@@ -25,7 +25,7 @@ module.exports = {
         authors: 'Justin0828',
         description: '简约优美的每日计划定制应用',
         // iconUrl: 'https://example.com/icon.ico', // 可选：远程图标
-        // setupIcon: './assets/icon.ico', // 可选：本地图标
+        icon: './assets/ratior_icon.ico',
       },
     },
     {
@@ -39,7 +39,7 @@ module.exports = {
       config: {
         name: 'Ratior',
         title: 'Ratior - 每日计划',
-        // icon: './assets/icon.icns', // 可选：macOS图标
+        icon: './assets/ratior_icon.png', // 启用macOS图标
         // background: './assets/dmg-background.png', // 可选：背景图
       },
     },

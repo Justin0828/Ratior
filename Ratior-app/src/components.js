@@ -80,6 +80,15 @@ class DateTabsComponent {
     this.container = container;
     this.store = store;
     this.currentDate = store.getCurrentDate();
+    this.isInitialized = false; // 添加初始化标志
+  }
+  
+  // 添加初始化方法
+  init() {
+    if (!this.isInitialized) {
+      this.bindEvents();
+      this.isInitialized = true;
+    }
   }
   
   render() {
@@ -100,10 +109,15 @@ class DateTabsComponent {
       `;
     }).join('');
     
-    this.bindEvents();
+    // 移除重复绑定事件的调用
+    // this.bindEvents();
+    
+    // 确保初始化
+    this.init();
   }
   
   bindEvents() {
+    // 使用事件委托，只绑定一次
     this.container.addEventListener('click', (e) => {
       const dateTab = e.target.closest('.date-tab');
       if (dateTab) {
@@ -261,6 +275,15 @@ class CalendarComponent {
     this.container = container;
     this.store = store;
     this.currentMonth = new Date();
+    this.isInitialized = false; // 添加初始化标志
+  }
+  
+  // 添加初始化方法
+  init() {
+    if (!this.isInitialized) {
+      this.bindEvents();
+      this.isInitialized = true;
+    }
   }
   
   render() {
@@ -338,11 +361,12 @@ class CalendarComponent {
       `;
     }).join('');
     
-    this.bindEvents();
+    // 移除这行，避免重复绑定事件
+    // this.bindEvents();
   }
   
   bindEvents() {
-    // 日期点击
+    // 日期点击事件使用事件委托，不会重复绑定
     const grid = this.container.querySelector('.calendar-grid');
     grid.addEventListener('click', (e) => {
       const dayElement = e.target.closest('.calendar-day');
@@ -353,7 +377,7 @@ class CalendarComponent {
       }
     });
     
-    // 月份导航
+    // 月份导航 - 只绑定一次
     const prevBtn = this.container.querySelector('#calendar-prev');
     const nextBtn = this.container.querySelector('#calendar-next');
     
@@ -370,6 +394,7 @@ class CalendarComponent {
   
   show() {
     this.container.classList.add('show');
+    this.init(); // 确保初始化
     this.render();
   }
   
